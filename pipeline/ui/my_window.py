@@ -16,6 +16,7 @@ class MyWindow(QtWidgets.QMainWindow):
         super(MyWindow, self).__init__()
         QtCompat.loadUi(ui_path, self)
         self.open_button.clicked.connect(self.open)
+        self.save_button.clicked.connect(self.save)
         self.export_button.clicked.connect(self.export)
         self.import_button.clicked.connect(self.importation)
 
@@ -23,6 +24,8 @@ class MyWindow(QtWidgets.QMainWindow):
         filename = QtWidgets.QFileDialog.getOpenFileName(self, 'Open File', "C:\\Users\\luffy\\Documents")
         self.engine_name.open(filename[0])
 
+    def save(self):
+        self.engine_name.save()
     def export(self):
         print('Export button clicked')
         search_namespace = QtWidgets.QFileDialog.getOpenFileName(self, "Open File", "C:\\Users\\luffy\\Documents")
